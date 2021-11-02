@@ -1,8 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const createMarkDownfile = require("/.utility/createMarkDownfile.js");
+const { prompt } = pkg
 
-inquirer
-  .prompt([
+const questions = [
+  
     {
       type: 'input',
       name: 'projectTitle',
@@ -49,16 +51,33 @@ inquirer
 
     {
         type: 'input',
-        name: 'questions',
-        message: 'Do you have any additional questions?',
+        name: 'Username',
+        message: 'What is your Github Username?',
     },
 
+    {
+      type: 'input',
+      name: 'Email',
+      message: 'What is your Email?',
+    },
+  ];
+  
+  function writetoFile(fileName, data){
+    writeFile(fileName, data, err => {
+      if (err) {
+        throw err;
+      }
+    });
+  }
+  
+  function init(){
+    prompt(questions).then(answers => {
+      const response = createMarkDownfile(answers);
+      writetoFile("./README.md", response);
 
-  ])
-  .then((data) => {
-   // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-const filename = "readME.md"
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
-    );
-  });
+    })
+
+  }
+
+
+  init();
