@@ -1,10 +1,11 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const createMarkDownfile = require("/.utility/createMarkDownfile.js");
-const { prompt } = pkg
 
-const questions = [
+const fs = require("fs");
+const inquirer= require('inquirer');
+const markdownfile =require("./utility/createMarkDownfile");
+
   
+  inquirer
+  .prompt([
     {
       type: 'input',
       name: 'projectTitle',
@@ -60,24 +61,13 @@ const questions = [
       name: 'Email',
       message: 'What is your Email?',
     },
-  ];
+])
+.then((data) => {
+ // const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
+const filename = "readME.md"
+  fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+    err ? console.log(err) : console.log('Success!')
+  );
+});
+ 
   
-  function writetoFile(fileName, data){
-    writeFile(fileName, data, err => {
-      if (err) {
-        throw err;
-      }
-    });
-  }
-  
-  function init(){
-    prompt(questions).then(answers => {
-      const response = createMarkDownfile(answers);
-      writetoFile("./README.md", response);
-
-    })
-
-  }
-
-
-  init();

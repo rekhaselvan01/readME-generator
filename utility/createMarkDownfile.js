@@ -33,4 +33,4 @@ Email: [${data.Email}](${data.Email})
 
 }
 
-export default createMarkDownfile;
+module.exports = createMarkDownfile;

@@ -1,10 +1,11 @@
 {
-	"projectTitle": "readME-generator",
-	"projectDesc": "The project dynamically generates a readME file containing all the details about the project.",
-	"InstallationDetails": "This project requires that node, npm, inquirer package has been installed on the computer.",
-	"usageDetails": "This project would help developers to dynamically generate the readME file so developers could focus on coding.",
+	"projectTitle": "README generator",
+	"projectDesc": "it is used to generate ReadME files quickly",
+	"InstallationDetails": "you need to install node package",
+	"usageDetails": "its used for generating readme fast",
 	"License": "Project Professional 2019",
-	"Contributing": "There are multiple areas where developers can contribute to this project. Contributors will be rewarded.",
-	"Tests": "The test for this project include testing to see if user input are valid and if the readME file is generated properly with the values entered and without any errors.",
-	"questions": "rekhaselvan01@gmail.com"
+	"Contributing": "developers can improve the application by adding more features",
+	"Tests": "we need to verify if the readme file is generated",
+	"Username": "rekhaselvan01",
+	"Email": "rekhaselvan01@gmail.com"
 }
